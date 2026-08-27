@@ -1,17 +1,24 @@
 # Backend
 
-API de la aplicación Escuela, construida con JavaScript, Node.js, Express y pnpm.
+API de tareas construida con Node.js, Express, TypeScript y pnpm.
 
 ## Estructura
 
 ```text
 backend/
 ├── src/
-│   └── index.js       # Servidor Express y rutas de la API
+│   ├── config/env.ts            # Variables de entorno
+│   ├── models/task.ts           # Tipo e interfaz de tarea
+│   ├── services/task.service.ts # Operaciones asíncronas
+│   ├── utils/delay.ts           # Retardo asíncrono
+│   └── index.ts                 # Servidor, rutas y errores
 ├── .env.example       # Variables de entorno de referencia
 ├── .gitignore
 ├── extensions.json     # Extensiones recomendadas para VS Code
 ├── package.json        # Dependencias y scripts del backend
+├── pnpm-lock.yaml
+├── preguntas-cierre.md
+├── tsconfig.json
 └── README.md
 ```
 
@@ -19,8 +26,9 @@ backend/
 
 ```bash
 pnpm install
+pnpm check     # Comprueba TypeScript
 pnpm dev       # Desarrollo con reinicio automático
-pnpm start     # Ejecución normal
+pnpm start     # Ejecución compilada
 ```
 
-El servidor inicia en `http://localhost:3000`. Rutas disponibles: `GET /api/health` y `GET /api/course`.
+El servidor inicia en `http://localhost:3000`. Rutas disponibles: `GET /api/health`, `GET /api/tasks`, `GET /api/tasks/:id`, `POST /api/tasks` y `PATCH /api/tasks/:id/complete`.
