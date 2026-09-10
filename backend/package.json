@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "description": "API backend del proyecto Escuela",
-  "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch src/server.ts",
+    "check": "tsc --noEmit",
     "build": "tsc",
-    "start": "node dist/index.js",
-    "check": "pnpm build"
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

@@ -1,23 +1,39 @@
 # Backend
 
-API de tareas construida con Node.js, Express, TypeScript y pnpm.
+API REST de tareas construida con Express, TypeScript y pnpm.
 
 ## Estructura
 
 ```text
 backend/
 ├── src/
-│   ├── config/env.ts            # Variables de entorno
-│   ├── models/task.ts           # Tipo e interfaz de tarea
-│   ├── services/task.service.ts # Operaciones asíncronas
-│   ├── utils/delay.ts           # Retardo asíncrono
-│   └── index.ts                 # Servidor, rutas y errores
-├── .env.example       # Variables de entorno de referencia
+│   ├── app.ts
+│   ├── server.ts
+│   ├── controllers/
+│   │   └── task.controller.ts
+│   ├── data/
+│   │   └── tasks.ts
+│   ├── errors/
+│   │   └── app-error.ts
+│   ├── middlewares/
+│   │   ├── error.middleware.ts
+│   │   └── not-found.middleware.ts
+│   ├── models/
+│   │   └── task.ts
+│   ├── routes/
+│   │   └── task.routes.ts
+│   ├── services/
+│   │   └── task.service.ts
+│   └── utils/
+│       └── delay.ts
+├── docs/
+│   ├── pruebas-api.md
+│   └── reflexion.md
+├── .env
+├── .env.example
 ├── .gitignore
-├── extensions.json     # Extensiones recomendadas para VS Code
-├── package.json        # Dependencias y scripts del backend
+├── package.json
 ├── pnpm-lock.yaml
-├── preguntas-cierre.md
 ├── tsconfig.json
 └── README.md
 ```
@@ -26,9 +42,10 @@ backend/
 
 ```bash
 pnpm install
-pnpm check     # Comprueba TypeScript
-pnpm dev       # Desarrollo con reinicio automático
-pnpm start     # Ejecución compilada
+pnpm check     # Verifica el código TypeScript
+pnpm dev       # Ejecuta el servidor en modo desarrollo
+pnpm build     # Compila la versión de producción
+pnpm start     # Ejecuta la versión compilada
 ```
 
-El servidor inicia en `http://localhost:3000`. Rutas disponibles: `GET /api/health`, `GET /api/tasks`, `GET /api/tasks/:id`, `POST /api/tasks` y `PATCH /api/tasks/:id/complete`.
+El servidor inicia en http://localhost:3000 y expone GET /health y los endpoints REST de tareas.

@@ -1,13 +1,8 @@
-export type TaskStatus = "pendiente" | "en progreso" | "completada";
+export type TaskStatus = 'pending' | 'completed';
 
 export interface Task {
   id: number;
   title: string;
   status: TaskStatus;
-  createdAt: string;
-}
-
-export interface CreateTaskInput {
-  title: string;
-  status?: TaskStatus;
+  createdAt: Date;
 }
